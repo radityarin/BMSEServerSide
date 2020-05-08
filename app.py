@@ -9,8 +9,8 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
-    return '''<h1>Distant Reading Archive</h1>
-<p>A prototype API for distant reading of science fiction novels.</p>'''
+    return '''<h1>API for Information Retrieval FINAL PROJECT - Boolean Model Search Engine </h1>
+<p>An API that returns News based on boolean form query</p>'''
 
 @app.route('/news/all', methods=['GET'])
 def api_all():
