@@ -16,7 +16,11 @@ def home():
 def api_all():
     bmse = BooleanModelSearchEngine()
     a = bmse.ask('')
-    return jsonify(a)
+    result_dict = {}
+    result_dict["success"] = True
+    result_dict["message"] = "News Loaded"
+    result_dict["data"] = a
+    return jsonify(result_dict)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -29,8 +33,11 @@ def api_filter():
     query = query_parameters.get('query')
     bmse = BooleanModelSearchEngine()
     a = bmse.ask(query)
-
-    return jsonify(a)
+    result_dict = {}
+    result_dict["success"] = True
+    result_dict["message"] = "News Loaded"
+    result_dict["data"] = a
+    return jsonify(result_dict)
 
 class Stack:
     def __init__(self):
