@@ -12,7 +12,7 @@ def home():
     return '''<h1>Distant Reading Archive</h1>
 <p>A prototype API for distant reading of science fiction novels.</p>'''
 
-@app.route('/api/v1/resources/books/all', methods=['GET'])
+@app.route('/news/all', methods=['GET'])
 def api_all():
     bmse = BooleanModelSearchEngine()
     a = bmse.ask('')
@@ -26,7 +26,7 @@ def api_all():
 def page_not_found(e):
     return "<h1>404</h1><p>The resource could not be found.</p>", 404
 
-@app.route('/api/v1/resources/books', methods=['GET'])
+@app.route('/news', methods=['GET'])
 def api_filter():
     query_parameters = request.args
 
