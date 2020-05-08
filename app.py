@@ -57,6 +57,14 @@ class Stack:
     
     def values(self):
         return self.items
+        
+    def remove_symbol(self,symbol):
+        while True:
+            try:
+                self.items.remove(symbol)
+            except:
+                break
+        return self.items
 
 
 class BooleanModelSearchEngine(object):
@@ -166,7 +174,8 @@ class BooleanModelSearchEngine(object):
                     while (stack.isEmpty() != True) and (self.precedence[stack.peek()] >= self.precedence[item]):
                         output.append(stack.pop())
                     stack.push(item)
-
+                    
+            stack.remove_symbol('(')
             while (stack.isEmpty() != True and stack.peek() != '('):
                 output.append(stack.pop())
             return output
