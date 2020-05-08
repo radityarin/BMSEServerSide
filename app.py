@@ -29,8 +29,8 @@ def page_not_found(e):
 @app.route('/news', methods=['GET'])
 def api_filter():
     query_parameters = request.args
-
-    query = query_parameters.get('query')
+    raw_query = query_parameters.get('query')
+    query = raw_query.replace("%20"," ")
     bmse = BooleanModelSearchEngine()
     a = bmse.ask(query)
     result_dict = {}
